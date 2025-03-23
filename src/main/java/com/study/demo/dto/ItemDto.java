@@ -7,15 +7,12 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Data
+@Getter
+@Setter
 public class ItemDto {
-  @Getter
   private Long id;
-  @Setter
   private String team;
-  @Setter
   private String itemLink;
-  @Setter
   private LocalDateTime date;
-  @Setter
   private int price;
 }

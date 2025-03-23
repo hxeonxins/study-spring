@@ -14,8 +14,10 @@ public class ItemService {
   private final ItemRepository itemRepository;
 
   public Optional<ItemDto> getItem(Long id) {
+    System.out.println("찾는 ID: " + id);
     return itemRepository.findById(id)
             .map(item -> {
+              System.out.println("찾은 데이터: " + item);
               ItemDto itemDto = new ItemDto();
               itemDto.setId(item.getId());
               itemDto.setTeam(item.getTeam());
