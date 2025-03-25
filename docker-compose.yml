@@ -5,21 +5,21 @@ services:
     container_name: test
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
       MYSQL_DATABASE: test
     ports:
       - "3309:3306"
     networks:
       - my_network
   app:
-    image: demo  # Docker 이미지로 설정
+    image: demo  #Docker 이미지로 설정
     container_name: demo-container
     ports:
       - "8082:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test #services에서 찾아갈 수 있는 URL
+      SPRING_DATASOURCE_USERNAME: ${USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${PASSWORD}
     depends_on:
       - db
     networks:
