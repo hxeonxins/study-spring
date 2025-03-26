@@ -1,14 +1,10 @@
 package com.study.demo.dto;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Data
-@Getter
-@Setter
+@Data //Getter, Setter 포함
 public class ItemDto {
   private Long id;
   private String team;
